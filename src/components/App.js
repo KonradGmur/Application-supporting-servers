@@ -8,11 +8,12 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch("/api/src/servers.json")
+    fetch("/api/servers.json")
       .then((response) => response.json())
-      .then((result) => {
+
+      .then((data) => {
         this.setState({
-          servers: result.servers,
+          servers: data.servers,
         });
       });
   }

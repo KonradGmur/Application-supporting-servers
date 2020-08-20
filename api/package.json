@@ -1,12 +1,12 @@
 {
-  "name": "acaisoft-recruitment-task-api",
+  "name": "main",
   "version": "1.0.0",
   "description": "A simple API for managing cloud servers",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
   },
-  "author": "Maciej Sawicki <maciej.sawicki@acaisoft.com> (https://acaisoft.com)",
+  "author": "Konrad Gmur",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4"
