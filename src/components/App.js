@@ -9,19 +9,19 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // setTimeout(this.fetchData, 3000);
+    setTimeout(this.fetchData, 3000);
   }
-  // fetchData = () => {
-  //   fetch("./servers.json")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       this.setState({
-  //         servers: data,
-  //         isLoaded: true,
-  //       });
-  //     })
-  //     .catch((err) => console.log(`Something went wrong ${err}`));
-  // };
+  fetchData = () => {
+    fetch("./servers.json")
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          servers: data,
+          isLoaded: true,
+        });
+      })
+      .catch((err) => console.log(`Something went wrong ${err}`));
+  };
 
   render() {
     const servers = this.state.servers.map((server) => (
