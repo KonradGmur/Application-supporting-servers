@@ -19,7 +19,8 @@ class App extends Component {
           servers: data,
           isLoaded: true,
         });
-      });
+      })
+      .catch((err) => console.log(`Something went wrong ${err}`));
   };
 
   render() {
