@@ -12,7 +12,7 @@ class App extends Component {
     setTimeout(this.fetchData, 3000);
   }
   fetchData = () => {
-    fetch("./servers.json")
+    fetch("http://localhost:4454/servers")
       .then((response) => response.json())
       .then((data) => {
         this.setState({
