@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   getFilteredServersForText(text) {
-    return [].filter((server) =>
+    return servers.filter((server) =>
       server.toLowerCase().includes(text.toLowerCase())
     );
   }
