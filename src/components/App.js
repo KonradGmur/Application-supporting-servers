@@ -9,7 +9,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // setTimeout(this.fetchData, 3000);
     fetch("./servers.json")
       .then((response) => response.json())
       .then((data) => {
@@ -20,17 +19,6 @@ class App extends Component {
       })
       .catch((err) => console.log(`Something went wrong ${err}`));
   }
-  // fetchData = () => {
-  //   fetch("./servers.json")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       this.setState({
-  //         servers: data,
-  //         isLoaded: true,
-  //       });
-  //     })
-  //     .catch((err) => console.log(`Something went wrong ${err}`));
-  // };
 
   filterServers(e) {
     const text = e.currentTarget.value;
@@ -39,6 +27,7 @@ class App extends Component {
       servers,
     });
   }
+
   getFilteredServersForText(text) {
     return [].filter((server) =>
       server.toLowerCase().includes(text.toLowerCase())
@@ -55,8 +44,6 @@ class App extends Component {
         <h4>Number of elements: {servers.length}</h4>
         <h5> Number Status</h5>
         <input onInput={this.filterServers.bind(this)} placeholder="Search" />
-        {/* <ServerList servers={this.state.servers} />
-        <ul>{this.state.isLoaded ? servers : "Loading..."}</ul> */}
         <ServerList servers={this.state.servers} />
       </div>
     );
