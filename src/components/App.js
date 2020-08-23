@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import Servers from "./Servers";
 
+const API = "http://localhost:4454/servers";
 class App extends Component {
   state = {
     servers: [],
   };
 
   componentDidMount() {
-    fetch("http://localhost:4454/servers")
+    fetch(API)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
