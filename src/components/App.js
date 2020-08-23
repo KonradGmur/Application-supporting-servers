@@ -5,16 +5,14 @@ import Servers from "./Servers";
 class App extends Component {
   state = {
     servers: [],
-    isLoaded: false,
   };
 
   componentDidMount() {
-    fetch("./servers.json")
+    fetch("http://localhost:4454/servers")
       .then((response) => response.json())
       .then((data) => {
         this.setState({
           servers: data,
-          isLoaded: true,
         });
       })
       .catch((err) => console.log(`Something went wrong ${err}`));
@@ -29,7 +27,7 @@ class App extends Component {
   }
 
   getFilteredServersForText(text) {
-    return servers.filter((server) =>
+    return [].filter((server) =>
       server.toLowerCase().includes(text.toLowerCase())
     );
   }
