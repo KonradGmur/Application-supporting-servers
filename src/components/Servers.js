@@ -1,13 +1,12 @@
 import React from "react";
 import "./Servers.css";
-import Button from "./button";
 
 const Servers = (props) => (
   <ul>
     <li>
-      <strong>{props.name} </strong>
+      {props.name}
       <strong>{props.status}</strong>
-      <Button />
+      <button>...</button>
     </li>
   </ul>
 );

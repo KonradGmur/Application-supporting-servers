@@ -41,7 +41,6 @@ class App extends Component {
       <div className="App">
         <h2>Servers</h2>
         <h4>Number of elements: {servers.length}</h4>
-        <h5> Number Status</h5>
         <input onInput={this.filterServers.bind(this)} placeholder="Search" />
         <ServerList servers={this.state.servers} />
       </div>
@@ -52,11 +51,18 @@ class App extends Component {
 const ServerList = ({ servers }) => {
   if (servers.length > 0) {
     return (
-      <ul>
-        {servers.map((server) => (
-          <Servers key={server.id} name={server.name} status={server.status} />
-        ))}
-      </ul>
+      <>
+        <div className="header"> Name Status</div>
+        <ul>
+          {servers.map((server) => (
+            <Servers
+              key={server.id}
+              name={server.name}
+              status={server.status}
+            />
+          ))}
+        </ul>
+      </>
     );
   }
   return <p>No results!</p>;
