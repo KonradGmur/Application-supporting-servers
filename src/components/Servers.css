@@ -12,3 +12,11 @@ li {
   border: 1px solid gray;
   list-style-type: none;
 }
+
+button {
+  float: right;
+  border: none;
+  background-color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
