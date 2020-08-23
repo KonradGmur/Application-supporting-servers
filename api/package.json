@@ -9,7 +9,10 @@
   "author": "Konrad Gmur",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "express": "^4.16.4",
+    "nodemon": "^2.0.4"
   },
   "devDependencies": {
     "@types/express": "^4.16.0"
