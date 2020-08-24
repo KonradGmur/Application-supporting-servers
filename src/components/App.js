@@ -2,37 +2,36 @@ import React, { Component } from "react";
 import "./App.css";
 import Servers from "./Servers";
 
-const API = "http://localhost:4454/servers/id";
+const API = "http://localhost:4454/servers";
 class App extends Component {
   state = {
     servers: [],
   };
 
   componentDidMount() {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", API, true);
-    xhr.onload = () => {
-      console.log(xhr.status);
-      if (xhr.status === 200) {
-        const servers = JSON.parse(xhr.response);
-        console.log(servers);
-        this.setState({
-          servers,
-        });
-      }
-      console.log(typeof xhr.response);
-    };
-
-    xhr.send(null);
-
-    // fetch(API)
-    //   .then((response) => response.json())
-    //   .then((data) => {
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("GET", API, true);
+    // xhr.onload = () => {
+    //   console.log(xhr.status);
+    //   if (xhr.status === 200) {
+    //     const servers = JSON.parse(xhr.response);
+    //     console.log(servers);
     //     this.setState({
-    //       servers: data,
+    //       servers,
     //     });
-    //   })
-    //   .catch((err) => console.log(`Something went wrong ${err}`));
+    //   }
+    //   console.log(typeof xhr.response);
+    // };
+    // xhr.send(null);
+
+    fetch(API)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          servers: data,
+        });
+      })
+      .catch((err) => console.log(`Something went wrong ${err}`));
   }
 
   filterServers(e) {
