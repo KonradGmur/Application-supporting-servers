@@ -38,11 +38,7 @@ class App extends Component {
 
   filterServers(e) {
     const text = e.currentTarget.value;
-    const servers = this.getFilteredServersForText(text);
-    console.log(servers);
-    console.log(text);
     this.setState({
-      servers,
       text,
     });
   }
