@@ -6,6 +6,7 @@ const API = "http://localhost:4454/servers";
 class App extends Component {
   state = {
     servers: [],
+    text: "",
   };
 
   componentDidMount() {
@@ -42,11 +43,12 @@ class App extends Component {
     console.log(text);
     this.setState({
       servers,
+      text,
     });
   }
 
-  getFilteredServersForText = (text) => {
-    return [].filter((server) =>
+  getFilteredServersForText = (text, servers) => {
+    return servers.filter((server) =>
       server.toLowerCase().includes(text.toLowerCase())
     );
   };
