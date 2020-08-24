@@ -22,6 +22,7 @@ class App extends Component {
     //   }
     //   console.log(typeof xhr.response);
     // };
+
     // xhr.send(null);
 
     fetch(API)
