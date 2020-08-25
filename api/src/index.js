@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = 4454;
 const servers = require("./servers.json");
+app.use(express.json({ limit: "1mb" }));
 const ONLINE = "ONLINE";
 const OFFLINE = "OFFLINE";
 const REBOOTING = "REBOOTING";

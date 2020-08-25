@@ -3,6 +3,7 @@
 }
 
 li {
+  height: 20px;
   margin: 0 auto;
   width: 1000px;
   padding: 15px;
@@ -19,4 +20,19 @@ button {
   background-color: #fff;
   font-size: 20px;
   cursor: pointer;
+  font-size: 12px;
+}
+
+.status2 {
+  float: left;
+  width: 35%;
+}
+
+.status {
+  float: left;
+  width: 61%;
+}
+
+.status3 {
+  float: left;
 }
