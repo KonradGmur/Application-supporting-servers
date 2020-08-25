@@ -6,29 +6,14 @@ const API = "http://localhost:4454/servers";
 class App extends Component {
   state = {
     servers: [],
-    text: "",
+    // value: "",
   };
 
   componentDidMount() {
-    // const xhr = new XMLHttpRequest();
-    // xhr.open("GET", API, true);
-    // xhr.onload = () => {
-    //   console.log(xhr.status);
-    //   if (xhr.status === 200) {
-    //     const servers = JSON.parse(xhr.response);
-    //     console.log(servers);
-    //     this.setState({
-    //       servers,
-    //     });
-    //   }
-    //   console.log(typeof xhr.response);
-    // };
-
-    // xhr.send(null);
-
     fetch(API)
       .then((response) => response.json())
       .then((data) => {
+        const allServers = data;
         this.setState({
           servers: data,
         });
@@ -36,18 +21,19 @@ class App extends Component {
       .catch((err) => console.log(`Something went wrong ${err}`));
   }
 
-  filterServers(e) {
-    const text = e.currentTarget.value;
-    this.setState({
-      text,
-    });
-  }
+  // filterServers(e) {
+  //   const text = e.currentTarget.value;
+  //   const servers = this.getFilteredUsersForText(text);
+  //   this.setState({
+  //     servers,
+  //   });
+  // }
 
-  getFilteredServersForText = (text, servers) => {
-    return servers.filter((server) =>
-      server.toLowerCase().includes(text.toLowerCase())
-    );
-  };
+  // getFilteredUsersForText(text, allServers) {
+  //   return allServers.filter((server) =>
+  //     server.toLowerCase().includes(text.toLowerCase())
+  //   );
+  // }
 
   render() {
     const servers = this.state.servers.map((server) => (
@@ -56,12 +42,28 @@ class App extends Component {
     return (
       <div className="App">
         <h2>Servers</h2>
-        <h4>Number of elements: {servers.length}</h4>
-        <input onInput={this.filterServers.bind(this)} placeholder="Search" />
+        <h3>Number of elements: {servers.length}</h3>
+        {/* <input onInput={this.filterServers.bind(this)} /> */}
+        <h4 className="header">NAME STATUS</h4>
         {servers}
+        {/* <ServerList users={this.state.filteredUsers} /> */}
       </div>
     );
   }
 }
+
+// const ServerList = ({ servers }) => {
+//   if (servers.length > 0) {
+//     return (
+//       <ul>
+//         {servers.map((server) => (
+//           <li key={server.id}>{servers}</li>
+//         ))}
+//       </ul>
+//     );
+//   }
+
+//   return <p>No results!</p>;
+// };
 
 export default App;

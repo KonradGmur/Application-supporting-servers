@@ -4,8 +4,7 @@ import "./Servers.css";
 const Servers = (props) => (
   <ul>
     <li>
-      {props.name}
-      <strong>{props.status}</strong>
+      {`${props.name} ${props.status}`}
       <button>...</button>
     </li>
   </ul>
