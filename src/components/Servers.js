@@ -1,6 +1,6 @@
 import React from "react";
 import "./Servers.css";
-import { Button, Dropdown } from "react-bootstrap";
+import { MenuItem, DropdownButton } from "@trendmicro/react-dropdown";
 
 const Servers = (props) => (
   <ul>
@@ -8,17 +8,15 @@ const Servers = (props) => (
       <span className="status2">{props.name}</span>
       <span className="status"> {props.status}</span>
       <span className="status3"></span>
-      <Button>
-        <Dropdown>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            ...
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item className="buttom">Turn off</Dropdown.Item>
-            <Dropdown.Item>Reboot</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </Button>
+      <DropdownButton
+        className="button"
+        btnSize="xs"
+        title="..."
+        onSelect={(eventKey) => {}}
+      >
+        <MenuItem eventKey={1}>Turn off</MenuItem>
+        <MenuItem eventKey={2}>Reboot</MenuItem>
+      </DropdownButton>
     </li>
   </ul>
 );

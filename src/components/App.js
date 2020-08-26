@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Servers from "./Servers";
+import "@trendmicro/react-buttons/dist/react-buttons.css";
+import "@trendmicro/react-dropdown/dist/react-dropdown.css";
 
 const API = "http://localhost:4454/servers";
 class App extends Component {
