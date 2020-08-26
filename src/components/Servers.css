@@ -14,23 +14,16 @@ li {
   list-style-type: none;
 }
 
-button {
-  float: right;
-  border: none;
-  background-color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  font-size: 12px;
-}
-
 .status2 {
   float: left;
   width: 35%;
 }
 
 .status {
+  color: rgb(7, 167, 79);
   float: left;
   width: 61%;
+  font-weight: bold;
 }
 
 .status3 {
