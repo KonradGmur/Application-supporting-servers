@@ -38,9 +38,10 @@ ul {
 }
 
 input {
+  margin-bottom: 20px;
   font-size: 20px;
   border: 1px solid black;
-  margin-left: 66%;
+  margin-left: 65%;
   border-radius: 10px;
 }
 

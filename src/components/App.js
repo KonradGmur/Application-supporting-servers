@@ -23,13 +23,13 @@ class App extends Component {
       .catch((err) => console.log(`Something went wrong ${err}`));
   }
 
-  // filterServers(e) {
-  //   const text = e.currentTarget.value;
-  //   const servers = this.getFilteredUsersForText(text);
-  //   this.setState({
-  //     servers,
-  //   });
-  // }
+  filterServers(e) {
+    const text = e.currentTarget.value;
+    const servers = this.getFilteredUsersForText(text);
+    this.setState({
+      servers,
+    });
+  }
 
   // getFilteredUsersForText(text, allServers) {
   //   return allServers.filter((server) =>
@@ -45,7 +45,11 @@ class App extends Component {
       <div className="App">
         <h2>Servers</h2>
         <h3>Number of elements: {servers.length}</h3>
-        {/* <input onInput={this.filterServers.bind(this)} /> */}
+        <input
+          onInput={this.filterServers.bind(this)}
+          placeholder="Search"
+          className="Search"
+        />
         <h4 className="header">NAME STATUS</h4>
         {servers}
         {/* <ServerList users={this.state.filteredUsers} /> */}
