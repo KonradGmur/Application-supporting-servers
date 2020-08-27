@@ -5,71 +5,63 @@ import "@trendmicro/react-buttons/dist/react-buttons.css";
 import "@trendmicro/react-dropdown/dist/react-dropdown.css";
 
 const API = "http://localhost:4454/servers";
+
+function searchingFor(term) {
+  return function (x) {
+    return x.first.toLowerCase().includes(term.toLowerCase()) || !term;
+  };
+}
 class App extends Component {
-  state = {
-    servers: [],
-    // value: "",
+  constructor(props) {
+    super(props);
+    this.state = {
+      servers: [],
+      term: "",
+    };
+
+    this.searchHandler = this.searchHandler.bind(this);
+  }
+
+  searchHandler = (e) => {
+    this.setState({ term: e.target.value });
   };
 
-  componentDidMount() {
-    fetch(API)
+  async function() {
+    await fetch(API)
       .then((response) => response.json())
       .then((data) => {
-        const allServers = data;
         this.setState({
           servers: data,
         });
+        const allServers = this.state.servers;
+        console.log(allServers);
       })
       .catch((err) => console.log(`Something went wrong ${err}`));
   }
 
-  filterServers(e) {
-    const text = e.currentTarget.value;
-    const servers = this.getFilteredUsersForText(text);
-    this.setState({
-      servers,
-    });
-  }
-
-  // getFilteredUsersForText(text, allServers) {
-  //   return allServers.filter((server) =>
-  //     server.toLowerCase().includes(text.toLowerCase())
-  //   );
-  // }
-
   render() {
-    const servers = this.state.servers.map((server) => (
-      <Servers key={server.id} name={server.name} status={server.status} />
-    ));
+    const allServers = this.state.servers
+      .filter(searchingFor(this.state.term))
+      .map((server) => (
+        <Servers key={server.id} name={server.name} status={server.status} />
+      ));
     return (
       <div className="App">
         <h2>Servers</h2>
-        <h3>Number of elements: {servers.length}</h3>
-        <input
-          onInput={this.filterServers.bind(this)}
-          placeholder="Search"
-          className="Search"
-        />
+        <h3>Number of elements: {allServers.length}</h3>
+        <form>
+          <input
+            className="Search"
+            placeholder="Search"
+            onChange={this.searchHandler}
+            value={this.state.term}
+          />
+        </form>
         <h4 className="header">NAME STATUS</h4>
-        {servers}
-        {/* <ServerList users={this.state.filteredUsers} /> */}
+        {allServers}
       </div>
     );
   }
 }
-
-// const ServerList = ({ servers }) => {
-//   if (servers.length > 0) {
-//     return (
-//       <ul>
-//         {servers.map((server) => (
-//           <li key={server.id}>{servers}</li>
-//         ))}
-//       </ul>
-//     );
-//   }
-
-//   return <p>No results!</p>;
-// };
 
 export default App;
