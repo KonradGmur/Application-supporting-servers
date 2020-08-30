@@ -6,11 +6,11 @@ import "@trendmicro/react-dropdown/dist/react-dropdown.css";
 
 const API = "http://localhost:4454/servers";
 
-function searchingFor(term) {
-  return function (x) {
-    return x.first.toLowerCase().includes(term.toLowerCase()) || !term;
-  };
-}
+// function searchingFor(term) {
+//   return function (x) {
+//     return x.first.toLowerCase().includes(term.toLowerCase()) || !term;
+//   };
+// }
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,8 +26,21 @@ class App extends Component {
     this.setState({ term: e.target.value });
   };
 
-  async function() {
-    await fetch(API)
+  // async function() {
+  //   await fetch(API)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       this.setState({
+  //         servers: data,
+  //       });
+  //       const allServers = this.state.servers;
+  //       console.log(allServers);
+  //     })
+  //     .catch((err) => console.log(`Something went wrong ${err}`));
+  // }
+
+  componentDidMount(){
+    fetch(API)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -41,7 +54,7 @@ class App extends Component {
 
   render() {
     const allServers = this.state.servers
-      .filter(searchingFor(this.state.term))
+      // .filter(searchingFor(this.state.term))
       .map((server) => (
         <Servers key={server.id} name={server.name} status={server.status} />
       ));
