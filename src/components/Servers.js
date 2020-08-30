@@ -14,8 +14,8 @@ const Servers = (props) => (
         title="..."
         onSelect={(eventKey) => {}}
       >
-        {/* <MenuItem eventKey={1}>Turn off</MenuItem> */}
-        {/* <MenuItem eventKey={2}>Reboot</MenuItem> */}
+        <MenuItem eventKey={1}>Turn off</MenuItem>
+        <MenuItem eventKey={2}>Reboot</MenuItem>
       </DropdownButton>
     </li>
   </ul>
