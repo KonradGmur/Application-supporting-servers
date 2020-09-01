@@ -26,20 +26,7 @@ class App extends Component {
     this.setState({ term: e.target.value });
   };
 
-  // async function() {
-  //   await fetch(API)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       this.setState({
-  //         servers: data,
-  //       });
-  //       const allServers = this.state.servers;
-  //       console.log(allServers);
-  //     })
-  //     .catch((err) => console.log(`Something went wrong ${err}`));
-  // }
-
-  componentDidMount(){
+  componentDidMount() {
     fetch(API)
       .then((response) => response.json())
       .then((data) => {
