@@ -39,6 +39,16 @@ class App extends Component {
       .catch((err) => console.log(`Something went wrong ${err}`));
   }
 
+  changeStatusServer = () => {
+    fetch(`http://localhost:4454/servers/${this.props.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+      },
+      body: {},
+    });
+  };
+
   render() {
     const allServers = this.state.servers
       // .filter(searchingFor(this.state.term))
@@ -54,6 +64,7 @@ class App extends Component {
             className="Search"
             placeholder="Search"
             onChange={this.searchHandler}
+            onClick={this.changeStatusServer}
             value={this.state.term}
           />
         </form>
