@@ -50,6 +50,12 @@ class App extends Component {
           status: "OFFLINE",
         },
       },
+    }).then((response) => {
+      if (response.ok()) {
+        this.setState({
+          servers: !this.state.servers,
+        });
+      }
     });
   };
 
