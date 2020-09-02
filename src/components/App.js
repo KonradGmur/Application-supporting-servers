@@ -45,7 +45,9 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: {},
+      body: {
+        servers: {},
+      },
     });
   };
 
