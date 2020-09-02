@@ -45,13 +45,13 @@ class App extends Component {
       headers: {
         "Content-Type": "application/json; charset=utf-8",
       },
-      body: {
+      body: JSON.stringify({
         servers: {
-          status: "OFFLINE",
+          servers: !this.state.servers,
         },
-      },
+      }),
     }).then((response) => {
-      if (response.ok()) {
+      if (response.ok) {
         this.setState({
           servers: !this.state.servers,
         });
